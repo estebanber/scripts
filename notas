@@ -1,0 +1,54 @@
+#!/bin/bash
+
+cli_editor="nvim"
+notes_dir="/home/eberna/repos/per/notas"
+md_notes_subdir="notas"
+index_file="$notes_dir/index.md"
+todo_file="$notes_dir/todo.txt"
+calendar_file="$notes_dir/calendar.txt"
+journal_file="$notes_dir/journal.md"
+
+# Get the current date
+current_date=$(date +"%Y-%m-%d")
+# Get the current path
+current_path=$(pwd)
+
+sort "$todo_file" -r -o "$todo_file"
+cd $notes_dir
+
+if [ $# -eq 0 ]; then
+    # Open note index file
+    $cli_editor "$index_file"
+elif [ "$1" == "j" ]; then
+    # Check if the current date already exists in the journal
+    if ! grep -q "$current_date" "$journal_file"; then
+        # Current date does not exist, so append a new date title at the end
+        printf "\n" >> "$journal_file"
+        echo "# $current_date" >> "$journal_file"
+    fi
+    $cli_editor '+ normal Go' +startinsert "$journal_file"
+elif [ "$1" == "c" ]; then
+    # Open calendar file
+    $cli_editor "$calendar_file"
+elif [ "$1" == "t" ]; then
+    # Open calendar file
+    $cli_editor "$todo_file"
+
+elif [ "$1" == "vt" ]; then
+    #grep -HE '^[^x\s|\(][A-Za-z]+' $todo_file > "/tmp/un-prioritized.txt"
+    tasks=$(grep -rE '^(x|\([A-Z]\)|[0-9]{4}-[0-9]{2}-[0-9]{2}|\s*-\s*\[\s*\]\s*) .+' $md_notes_subdir | sed 's/\s*-\s*\[\s*\]\s*/(N) /' | awk -F ':' '{len = length($0); printf "%s%*s(%s)\n", substr($0, index($0, ":") + 1), 70-length($0)+length($1), " ", substr($0, 1, index($0, ":") - 1)}')
+    todos=$(cat "$todo_file" | sed 's/^\([^\(\)\|x ]\)/\(N\) \1/')
+    echo -e "$tasks\n$todos" | sort | bat -l todo.txt --file-name "All tasks"
+else
+    note_name="$1"
+    note_file="$notes_dir/$md_notes_subdir/$note_name.md"
+
+    # Create a new markdow note if it doesn't exist
+    if [ ! -f "$note_file" ]; then
+        # The file doesn't exist so adds the title
+        echo "# $note_name" > "$note_file"
+    fi
+    $cli_editor '+ normal Go' +startinsert "$note_file"
+fi
+# return to current path
+cd $current_path

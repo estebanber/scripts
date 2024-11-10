@@ -1,0 +1,3 @@
+scrot -e 'xclip -selection clipboard -t image/png -i $f' -s @@@ Copiar <b>sección</b> de la pantalla a la papelera
+nc -u 0.0.0.0 9999 @@@ Conctarse con net cat a una ip y puerto usand protocolo UDP
+nc -lu -p 9999 @@@ Crear servidor UDP

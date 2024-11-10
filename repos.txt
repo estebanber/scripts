@@ -1,0 +1,7 @@
+#Personal
+git@github.com:estebanber/notas.git
+git@github.com:estebanber/dieworte.git
+#3rd-party
+https://github.com/ArteryTek/openocd
+#Profesional
+git@github.com:estebanber/pulsebox.git
