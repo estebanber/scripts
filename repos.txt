@@ -1,4 +1,5 @@
 #Personal
+git@github.com:estebanber/scripts.git
 git@github.com:estebanber/notas.git
 git@github.com:estebanber/dieworte.git
 #3rd-party
