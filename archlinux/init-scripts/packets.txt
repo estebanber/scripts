@@ -1,0 +1,29 @@
+# base
+base archlinux-keyring linux linux-headers linux-firmware fish lvm2 mtools networkmanager iwd dhcpcd wget curl openssh neovim unzip unrar p7zip zip unarj arj cabextract xz pbzip2 pixz fuse3 ntfs-3g net-tools sbctl lrzip cpio gdisk nasm rsync vim nano dosfstools nano-syntax-highlighting usbutils pass tree htop wget gnupg
+
+#development
+base-devel cmake git rust python ninja
+
+#gui
+awesome hyprland kitty firefox chromium libreoffice mpv mplayer vlc autorandr arandr scrot ffmpeg gimp nitrogen thunar xsel xclip xorg xorg-xinit
+
+#fonts
+ttf-roboto ttf-roboto-mono ttf-jetbrains-mono ttf-dejavu ttf-linux-libertine ttf-nerd-fonts-symbols-mono ttf-opensans ttf-ubuntu-font-family ttf-liberation ttf-joypixels noto-fonts-emoji arc-icon-theme
+
+#utils-console
+exa fzf bat ncdu ranger cups onefetch ripgrep acpi screen tmux jq
+
+#utils-gui
+rofi-pass rofi-calc zenity hunspell hunspell-es_ar hunspell-en_us picom
+
+#audio
+alsa-firmware alsa-tools alsa-utils pulseaudio pulseaudio-alsa pulsemixer gst-plugins-ugly
+
+#others
+docker transmission-gtk aws-cli virt-manager libvirt qemu-desktop librecad
+
+#python-modules
+python-pillow python-boto3 python-xlsxwriter python-wheel python-pip python-neovim
+
+#embedded
+minicom moserial
