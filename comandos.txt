@@ -1,3 +1,5 @@
 scrot -e 'xclip -selection clipboard -t image/png -i $f' -s @@@ Copiar <b>sección</b> de la pantalla a la papelera
 nc -u 0.0.0.0 9999 @@@ Conctarse con net cat a una ip y puerto usand protocolo UDP
 nc -lu -p 9999 @@@ Crear servidor UDP
+myrepos.sh crear_estructura repos @@@ Crear estructura de repositorios utiles (personal, profesiona, de terceros).
+myrepos.sh clonar_personal repos @@@ Clonar repositorios personales.

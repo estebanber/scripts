@@ -3,10 +3,10 @@
 cli_editor="nvim"
 notes_dir="/home/eberna/repos/per/notas"
 md_notes_subdir="notas"
-index_file="$notes_dir/index.md"
-todo_file="$notes_dir/todo.txt"
+index_file="$notes_dir/00 - INDEX/index.md"
+todo_file="$notes_dir/00 - INDEX/todo.txt"
 calendar_file="$notes_dir/calendar.txt"
-journal_file="$notes_dir/journal.md"
+journal_file="$notes_dir/06 - DIARIO/journal.md"
 
 # Get the current date
 current_date=$(date +"%Y-%m-%d")
